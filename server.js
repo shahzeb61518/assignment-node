@@ -20,7 +20,7 @@ app.use(bodyParser.json({ limit: "5000mb" }));
 app.use(bodyParser.urlencoded({ extended: false, limit: "5000mb" }));
 
 // app.use(cors())
-app.use((req, res, next) => {
+app.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Methods",
@@ -34,7 +34,7 @@ app.use((req, res, next) => {
     "Access-Control-Allow-Headers",
     "X-Requested-With,Accept-Encoding,Origin,Pragma,Referer,Cache-Control,User-Agent,Sec-Fetch-Dest,Sec-Fetch-Mode,Sec-Fetch-Site,Accept-Language,Connection,Accept,Content-Type,Content-Length,Host,Authorization"
   );
-  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader("Access-Control-Allow-Credentials", true);
   next();
 });
 
