@@ -1,7 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
-// var cors = require("cors");
+var cors = require("cors");
 
 // user routes
 const user_Router = require("./routes/user-routes");
@@ -17,25 +17,7 @@ mongoose.connect(url, (err, db) => {
 });
 
 
-// app.use(cors())
-app.use(function (req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "X-Requested-With,Content-Type"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "X-Requested-With,Accept-Encoding,Origin,Referer,Cache-Control,Accept-Language,Connection,Accept,Content-Type,Content-Length,Host,Authorization"
-  );
-  res.setHeader("Access-Control-Allow-Credentials", true);
-  next();
-});
-
+app.use(cors())
 
 app.use(bodyParser.json({ limit: "5000mb" }));
 app.use(bodyParser.urlencoded({ extended: false, limit: "5000mb" }));
