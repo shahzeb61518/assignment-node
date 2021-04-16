@@ -26,11 +26,11 @@ app.use(function (req, res, next) {
   );
   res.setHeader(
     "Access-Control-Allow-Headers",
-    "X-Requested-With,content-type"
+    "X-Requested-With,Content-Type"
   );
   res.setHeader(
     "Access-Control-Allow-Headers",
-    "X-Requested-With,Accept-Encoding,Origin,Pragma,Referer,Cache-Control,User-Agent,Sec-Fetch-Dest,Sec-Fetch-Mode,Sec-Fetch-Site,Accept-Language,Connection,Accept,Content-Type,Content-Length,Host,Authorization"
+    "X-Requested-With,Accept-Encoding,Origin,Referer,Cache-Control,Accept-Language,Connection,Accept,Content-Type,Content-Length,Host,Authorization"
   );
   res.setHeader("Access-Control-Allow-Credentials", true);
   next();
