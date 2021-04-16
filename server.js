@@ -16,19 +16,20 @@ mongoose.connect(url, (err, db) => {
   console.log("DB is Connected");
 });
 
-// app.use(cors())
-app.use((req, res, next) => {
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "X-Requested-With,Accept,Content-Type,Content-Length,Host,Authorization,Connection,Sec-Fetch-Dest,Sec-Fetch-Site,Referer"
-  );
-  res.setHeader("Access-Control-Allow-Credentials", true);
-  next();
-});
+app.use(cors())
+// app.use((req, res, next) => {
+//   res.setHeader("Access-Control-Allow-Origin", "*");
+//   res.setHeader(
+//     "Access-Control-Allow-Methods",
+//     "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+//   );
+//   res.setHeader(
+//     "Access-Control-Allow-Headers",
+//     "X-Requested-With,Accept,Content-Type,Content-Length,Host,Authorization,Connection,Sec-Fetch-Dest,Sec-Fetch-Site,Referer"
+//   );
+//   res.setHeader("Access-Control-Allow-Credentials", true);
+//   next();
+// });
 
 app.use(bodyParser.json({ limit: "5000mb" }));
 app.use(bodyParser.urlencoded({ extended: false, limit: "5000mb" }));
