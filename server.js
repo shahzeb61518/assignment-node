@@ -1,11 +1,12 @@
 var express = require("express");
-const app = express();
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 // var cors = require("cors");
 
 // user routes
 const user_Router = require("./routes/user-routes");
+
+const app = express();
 
 // cloud mognodb allow from anywhere
 const url =
@@ -37,12 +38,14 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/api/user", user_Router);
-
 //Error handler any wrong routes
 app.use("*", (req, res, next) => {
   res.status(404).json({ status: 404, message: "Page Not Found", data: null });
 });
+
+
+app.use("/api/user", user_Router);
+
 
 var port = 4000;
 var server = app.listen(port, () =>
