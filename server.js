@@ -25,7 +25,7 @@ app.use((req, res, next) => {
   );
   res.setHeader(
     "Access-Control-Allow-Headers",
-    "X-Requested-With,content-type,Content-Length,Host,Authorization,Connection,Sec-Fetch-Dest,Sec-Fetch-Site,Referer"
+    "X-Requested-With,Content-Type,Content-Length,Host,Authorization,Connection,Sec-Fetch-Dest,Sec-Fetch-Site,Referer"
   );
   res.setHeader("Access-Control-Allow-Credentials", true);
   next();
