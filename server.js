@@ -16,8 +16,6 @@ mongoose.connect(url, (err, db) => {
   console.log("DB is Connected");
 });
 
-app.use(bodyParser.json({ limit: "5000mb" }));
-app.use(bodyParser.urlencoded({ extended: false, limit: "5000mb" }));
 
 // app.use(cors())
 app.use(function (req, res, next) {
@@ -39,6 +37,8 @@ app.use(function (req, res, next) {
 });
 
 
+app.use(bodyParser.json({ limit: "5000mb" }));
+app.use(bodyParser.urlencoded({ extended: false, limit: "5000mb" }));
 
 
 app.use("/api/user", user_Router);
