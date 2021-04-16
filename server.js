@@ -3,12 +3,12 @@ const app = express();
 var bodyParser = require("body-parser");
 var cors = require("cors");
 var mongoose = require("mongoose");
-var cors = require('cors')
+var cors = require("cors");
 
-// user routes 
+// user routes
 const user_Router = require("./routes/user-routes");
 
-// cloud mognodb allow from anywhere 
+// cloud mognodb allow from anywhere
 const url =
   "mongodb+srv://shah:shah@cluster0.rsl27.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 mongoose.connect(url, (err, db) => {
@@ -17,7 +17,7 @@ mongoose.connect(url, (err, db) => {
 });
 
 // app.use(cors())
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Methods",
@@ -40,7 +40,6 @@ app.use("/api/user", user_Router);
 app.use("*", (req, res, next) => {
   res.status(404).json({ status: 404, message: "Page Not Found", data: null });
 });
-
 
 var port = 4000;
 var server = app.listen(port, () =>
