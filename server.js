@@ -1,7 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
-var cors = require("cors");
 
 // user routes
 const user_Router = require("./routes/user-routes");
@@ -16,12 +15,17 @@ mongoose.connect(url, (err, db) => {
   console.log("DB is Connected");
 });
 
-
-app.use(cors())
+const cors = require("cors");
+const corsOptions = {
+  origin: "*",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+};
+app.use(cors(corsOptions));
 
 app.use(bodyParser.json({ limit: "5000mb" }));
 app.use(bodyParser.urlencoded({ extended: false, limit: "5000mb" }));
-
 
 app.use("/api/user", user_Router);
 
