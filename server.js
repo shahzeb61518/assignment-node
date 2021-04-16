@@ -7,14 +7,13 @@ var mongoose = require("mongoose");
 // user routes 
 const user_Router = require("./routes/user-routes");
 
-// cloud mognodb 
+// cloud mognodb allow from anywhere 
 const url =
   "mongodb+srv://shah:shah@cluster0.rsl27.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 mongoose.connect(url, (err, db) => {
   if (err) throw console.log("err>>>", err);
   console.log("DB is Connected");
 });
-
 
 app.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "*");
